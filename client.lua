@@ -2,9 +2,8 @@ RegisterKeyMapping('SnowballPickup', 'Pick up snowball', 'keyboard', 'e')
 
 RegisterCommand('SnowballPickup', function()
     RequestAnimDict('anim@mp_snowball')
-    local snow = GetSnowLevel()
     local snowBall = joaat('WEAPON_SNOWBALL')
-    if snow >= 0.2 then 
+    if IsNextWeatherType('XMAS') then
         local ped = PlayerPedId()-- 
         TaskPlayAnim(ped, 'anim@mp_snowball', 'pickup_snowball', 8.0, -1, -1, 0, 1, 0, 0, 0) -- 
         Wait(1000)
@@ -13,4 +12,3 @@ RegisterCommand('SnowballPickup', function()
         print('Not enough snow')
     end
 end)
-
